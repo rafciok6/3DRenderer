@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Window">
+      <UniqueIdentifier>{bd8f40b1-ef04-4728-b453-10d9bab97f37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{14ad1d13-666f-4592-83cf-d53847ef2700}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interfaces">
+      <UniqueIdentifier>{dda22760-abd0-4973-964e-52f5b0186e4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{931b4bd4-b457-42c6-af06-28f9ebd857cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer">
+      <UniqueIdentifier>{9e358231-5f03-4a69-9c3a-164395ee6aae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window\GUI">
+      <UniqueIdentifier>{272899c0-ea63-469e-8bfc-23880e3328e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shader\Shaders">
+      <UniqueIdentifier>{9f6ef22c-5596-47a5-ad24-c3f133a29bc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Scene">
+      <UniqueIdentifier>{1a302168-c1f2-4176-9e31-5e7f5e78e1d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Scene\Objects">
+      <UniqueIdentifier>{88b36176-eb66-4394-ab0c-6a83c76397b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Scene\Asset">
+      <UniqueIdentifier>{d7c8c67e-b5e3-48a1-9418-e13fa3acf4b1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="small.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="OGLWin32.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\shader\basic.frag">
+      <Filter>Shader\Shaders</Filter>
+    </None>
+    <None Include="..\data\shader\basic.vert">
+      <Filter>Shader\Shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="OGLApplication.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2D.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="OGLWin32.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="OGLWindow.h" />
+    <ClInclude Include="Renderable.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Listener.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="OGLShader.h">
+      <Filter>Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderBase.h">
+      <Filter>Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="OGLRectangle.h">
+      <Filter>Resource Files\Scene\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="OGLCube.h">
+      <Filter>Resource Files\Scene\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="GLScene.h">
+      <Filter>Resource Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="IRenderer.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="GUIElements.h">
+      <Filter>Window\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="OGLTriangle.h">
+      <Filter>Resource Files\Scene\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelAsset.h">
+      <Filter>Resource Files\Scene\Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelInstance.h">
+      <Filter>Resource Files\Scene\Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="Terrain.h">
+      <Filter>Resource Files\Scene\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>Resource Files\Scene\Asset</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="OGLApplication.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2D.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="OGLWin32.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="OGLWindow.cpp" />
+    <ClCompile Include="OGLShader.cpp">
+      <Filter>Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="OGLCube.cpp">
+      <Filter>Resource Files\Scene\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="OGLRectangle.cpp">
+      <Filter>Resource Files\Scene\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="GLScene.cpp">
+      <Filter>Resource Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="GUIElements.h.cpp">
+      <Filter>Window\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="OGLTriangle.cpp">
+      <Filter>Resource Files\Scene\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderable.cpp">
+      <Filter>Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelInstance.cpp">
+      <Filter>Resource Files\Scene\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="Terrain.cpp">
+      <Filter>Resource Files\Scene\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>Resource Files\Scene\Asset</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="OGLWin32.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
