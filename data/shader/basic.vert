@@ -5,7 +5,9 @@ uniform mat4 modelview, projection;
 in vec4 position;
 in vec4 inColour;
 
+
 out vec4 outColour;
+
 
 void main()
 {	

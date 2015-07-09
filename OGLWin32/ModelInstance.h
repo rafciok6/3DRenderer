@@ -2,6 +2,7 @@
 #include "ModelAsset.h"
 #include "OGLShader.h"
 #include "Material.h"
+#include <vector> 
 
 
 
@@ -27,6 +28,6 @@ private:
 	//Matrices 
 	float m_modelview[16];
 	float m_projection[16];
-	UINT m_textureID; 
+	std::vector<UINT> m_textureID; 
 
 };

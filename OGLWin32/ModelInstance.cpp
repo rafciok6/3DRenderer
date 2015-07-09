@@ -45,17 +45,24 @@ void ModelInstance::Render()
 	glUniformMatrix4fv(glGetUniformLocation(m_ModelAsset.shader->GetProgramHandle(), "projection"), 1, GL_FALSE, m_projection);
 
 	glActiveTexture(GL_TEXTURE0); 
-	glBindTexture(GL_TEXTURE_2D, m_textureID); 
+	 	glBindTexture(GL_TEXTURE_2D, m_textureID.at(0));
+	glUniform2f(glGetUniformLocation(m_ModelAsset.shader->GetProgramHandle(), "screenSize"), 1024.0f /8, 768.0f/ 8);
 	glUniform1i(glGetUniformLocation(m_ModelAsset.shader->GetProgramHandle(), "tex"), 0); 
 
 	glBindVertexArray(m_ModelAsset.vao);
+	
 	glDrawElements( GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, 0 );
+	glBindTexture(GL_TEXTURE_2D, m_textureID.at(1));
+	//glUniform1i(glGetUniformLocation(m_ModelAsset.shader->GetProgramHandle(), "tex"), 1);
 	glDrawElements( GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, (void*)(4*sizeof(int)) );
+	glBindTexture(GL_TEXTURE_2D, m_textureID.at(2));
 	glDrawElements( GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, (void*)(8*sizeof(int)) );
+	//glBindTexture(GL_TEXTURE_2D, m_textureID.at(3));
 	glDrawElements( GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, (void*)(12*sizeof(int)) );
+
 	glDrawElements( GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, (void*)(16*sizeof(int)) );
 	glDrawElements( GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, (void*)(20*sizeof(int)) );
-	glDrawArrays(GL_TRIANGLES, 0, 24);
+	//glDrawArrays(GL_TRIANGLES, 0, 24);
 	glBindVertexArray(0);
 
 	m_ModelAsset.shader->DeactivateShaderProgram();
@@ -63,6 +70,7 @@ void ModelInstance::Render()
 
 void ModelInstance::SetData(const GLfloat *vertex_positions, GLsizeiptr positionSize, const GLfloat * vertex_colors, GLsizeiptr colorsSize, const int * vertex_indices, GLsizeiptr indiciesSize)
 {
+
 	glGenVertexArrays(1, &m_ModelAsset.vao);
 	glBindVertexArray(m_ModelAsset.vao);
 
@@ -90,8 +98,10 @@ void ModelInstance::SetData(const GLfloat *vertex_positions, GLsizeiptr position
 
 void ModelInstance::SetTexture(LPWSTR filename)
 {
-	if (!CreateTexture(m_textureID, filename))
+	UINT index; 
+	if (!CreateTexture(index, filename))
 	{
 		std::cout << "ModelInstance.cpp: Cannot Load Texture" << std::endl; 
 	}
+	m_textureID.push_back(index);
 }
