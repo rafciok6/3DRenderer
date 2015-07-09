@@ -2,7 +2,7 @@
 
 //This method creates a texture in OpenGL that we can texture map 
 //Create texture from the BitMap File 
-bool Material::CreateTexture(GLuint &textureID, LPCWSTR szFileName)
+bool CreateTexture(GLuint &textureID, LPCWSTR szFileName)
 {
 	HBITMAP	hBMP;  //handle to the bit map 
 	BITMAP bitmap; //Bitmap structure 
@@ -11,8 +11,8 @@ bool Material::CreateTexture(GLuint &textureID, LPCWSTR szFileName)
 	hBMP = (HBITMAP)LoadImage(GetModuleHandle(NULL), szFileName, IMAGE_BITMAP, 0, 0, LR_CREATEDIBSECTION | LR_LOADFROMFILE);
 
 	if (!hBMP) //does the bitmap exist? 
-	{
 		return FALSE; //If not return false
+	{
 	}
 
 	GetObject(hBMP, sizeof(bitmap), &bitmap);  // Get The Object

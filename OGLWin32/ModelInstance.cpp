@@ -1,5 +1,6 @@
 #include "ModelInstance.h"
 #include "GLEW/include/glew.h"
+#include <iostream>
 
 ModelInstance::ModelInstance()
 {
@@ -43,6 +44,10 @@ void ModelInstance::Render()
 	glUniformMatrix4fv(glGetUniformLocation(m_ModelAsset.shader->GetProgramHandle(), "modelview"), 1, GL_FALSE, m_modelview);
 	glUniformMatrix4fv(glGetUniformLocation(m_ModelAsset.shader->GetProgramHandle(), "projection"), 1, GL_FALSE, m_projection);
 
+	glActiveTexture(GL_TEXTURE0); 
+	glBindTexture(GL_TEXTURE_2D, m_textureID); 
+	glUniform1i(glGetUniformLocation(m_ModelAsset.shader->GetProgramHandle(), "tex"), 0); 
+
 	glBindVertexArray(m_ModelAsset.vao);
 	glDrawElements( GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, 0 );
 	glDrawElements( GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, (void*)(4*sizeof(int)) );
@@ -81,4 +86,12 @@ void ModelInstance::SetData(const GLfloat *vertex_positions, GLsizeiptr position
 
 	glBindVertexArray(0);
 
+}
+
+void ModelInstance::SetTexture(LPWSTR filename)
+{
+	if (!CreateTexture(m_textureID, filename))
+	{
+		std::cout << "ModelInstance.cpp: Cannot Load Texture" << std::endl; 
+	}
 }

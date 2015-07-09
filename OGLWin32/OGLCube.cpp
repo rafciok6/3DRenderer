@@ -97,6 +97,7 @@ colours[3] = 1.0f;
 
 	m_ModelInstance.SetData(corners, 24 * sizeof(float), colours, 24 * sizeof(float), indices, 24 * sizeof(float));
 
+	m_ModelInstance.SetTexture(L"Image.bmp"); 
 	//glGenVertexArrays( 1, &m_vao );
 	//glBindVertexArray( m_vao );
 

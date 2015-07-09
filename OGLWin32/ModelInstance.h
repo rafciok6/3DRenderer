@@ -1,6 +1,7 @@
 #pragma once 
 #include "ModelAsset.h"
 #include "OGLShader.h"
+#include "Material.h"
 
 
 
@@ -15,6 +16,8 @@ public:
 
 	void SetData(const GLfloat *vertex_positions, GLsizeiptr positionSize, const GLfloat * vertex_colors, GLsizeiptr colorsSize, const int * vertex_indices, GLsizeiptr indiciesSize);
 
+
+	void SetTexture(LPWSTR filename); 
 private: 	
 	
 	void SetShader(const char* vertexShader, const char* fragShader);
@@ -24,5 +27,6 @@ private:
 	//Matrices 
 	float m_modelview[16];
 	float m_projection[16];
+	UINT m_textureID; 
 
 };

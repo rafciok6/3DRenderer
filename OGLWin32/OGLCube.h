@@ -5,6 +5,7 @@
 #include "Vector2D.h"
 #include "ModelInstance.h"
 
+
 class OGLCube : public Renderable
 {
 	private:
