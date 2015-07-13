@@ -8,5 +8,5 @@ out vec4 outFrag;
 
 void main()
 {
-	outFrag = texture(tex, (gl_FragCoord.xy / screenSize)) * outColour;
+	outFrag = texture(tex, (gl_FragCoord.xy / screenSize));// * outColour;
 }
