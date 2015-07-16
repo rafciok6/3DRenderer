@@ -97,6 +97,7 @@
     <ClInclude Include="Material.h" />
     <ClInclude Include="ModelAsset.h" />
     <ClInclude Include="ModelInstance.h" />
+    <ClInclude Include="OBJLoader.h" />
     <ClInclude Include="OGLApplication.h" />
     <ClInclude Include="OGLCube.h" />
     <ClInclude Include="OGLRectangle.h" />
@@ -117,6 +118,7 @@
     <ClCompile Include="GUIElements.h.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="ModelInstance.cpp" />
+    <ClCompile Include="OBJLoader.cpp" />
     <ClCompile Include="OGLApplication.cpp" />
     <ClCompile Include="OGLCube.cpp" />
     <ClCompile Include="OGLRectangle.cpp" />

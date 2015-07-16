@@ -113,6 +113,9 @@
     <ClInclude Include="Material.h">
       <Filter>Resource Files\Scene\Asset</Filter>
     </ClInclude>
+    <ClInclude Include="OBJLoader.h">
+      <Filter>Resource Files\Scene\Asset</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OGLApplication.cpp">
@@ -156,6 +159,9 @@
       <Filter>Resource Files\Scene\Objects</Filter>
     </ClCompile>
     <ClCompile Include="Material.cpp">
+      <Filter>Resource Files\Scene\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="OBJLoader.cpp">
       <Filter>Resource Files\Scene\Asset</Filter>
     </ClCompile>
   </ItemGroup>
