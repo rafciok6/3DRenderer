@@ -19,6 +19,7 @@ void RendererOGL::Init()
 	//m_cube = std::unique_ptr<OGLCube>(new OGLCube());
 	//m_renderable = make_shared<Renderable>(); 
 	//m_RenderList.push_back(shared_ptr<OGLCube>(new OGLCube()));
+	m_obj.Load("teapot.obj");
 
 	AddToRender(shared_ptr<OGLCube>(new OGLCube()));
 	//AddToRender(shared_ptr<OGLTriangle>(new OGLTriangle(0, 0)));
@@ -36,6 +37,7 @@ void RendererOGL::Render()
 	{
 		r->Render();
 	}
+	m_obj.Render();
 	//m_cube->Render();
 }
 

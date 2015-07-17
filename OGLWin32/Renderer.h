@@ -1,12 +1,14 @@
 #pragma once
 //Renderer class handle all rendering 
 //Set Camera, Render Listo of objects taken from the scene 
-#include "IRenderer.h"
+#include "IRenderer.h" 
+#include "OBJLoader.h"
 #include "Renderable.h"
 #include "OGLCube.h"
 #include "OGLTriangle.h"
 #include <memory> 
 #include <vector> 
+
 
 using namespace std;
 
@@ -28,4 +30,6 @@ public:
 private: 
 	std::unique_ptr<OGLCube>	m_cube;
 	vector<shared_ptr<Renderable>> m_RenderList; 
+
+	OBJLoader m_obj; 
 };

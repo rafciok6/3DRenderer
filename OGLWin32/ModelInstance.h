@@ -30,4 +30,5 @@ private:
 	float m_projection[16];
 	std::vector<UINT> m_textureID; 
 
+	int m_size;
 };

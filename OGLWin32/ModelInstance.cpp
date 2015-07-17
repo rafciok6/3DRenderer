@@ -4,7 +4,7 @@
 
 ModelInstance::ModelInstance()
 {
-
+	m_size = 0;
 }
 
 ModelInstance::~ModelInstance()
@@ -51,18 +51,18 @@ void ModelInstance::Render()
 
 	glBindVertexArray(m_ModelAsset.vao);
 	
-	glDrawElements( GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, 0 );
-	glBindTexture(GL_TEXTURE_2D, m_textureID.at(1));
-	//glUniform1i(glGetUniformLocation(m_ModelAsset.shader->GetProgramHandle(), "tex"), 1);
-	glDrawElements( GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, (void*)(4*sizeof(int)) );
-	glBindTexture(GL_TEXTURE_2D, m_textureID.at(2));
-	glDrawElements( GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, (void*)(8*sizeof(int)) );
-	//glBindTexture(GL_TEXTURE_2D, m_textureID.at(3));
-	glDrawElements( GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, (void*)(12*sizeof(int)) );
+	//glDrawElements( GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, 0 );
+	//glBindTexture(GL_TEXTURE_2D, m_textureID.at(1));
+	////glUniform1i(glGetUniformLocation(m_ModelAsset.shader->GetProgramHandle(), "tex"), 1);
+	//glDrawElements( GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, (void*)(4*sizeof(int)) );
+	//glBindTexture(GL_TEXTURE_2D, m_textureID.at(2));
+	//glDrawElements( GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, (void*)(8*sizeof(int)) );
+	////glBindTexture(GL_TEXTURE_2D, m_textureID.at(3));
+	//glDrawElements( GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, (void*)(12*sizeof(int)) );
 
-	glDrawElements( GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, (void*)(16*sizeof(int)) );
-	glDrawElements( GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, (void*)(20*sizeof(int)) );
-	//glDrawArrays(GL_TRIANGLES, 0, 24);
+	//glDrawElements( GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, (void*)(16*sizeof(int)) );
+	//glDrawElements( GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, (void*)(20*sizeof(int)) );
+	glDrawArrays(GL_TRIANGLES, 0, m_size);
 	glBindVertexArray(0);
 
 	m_ModelAsset.shader->DeactivateShaderProgram();
@@ -70,7 +70,7 @@ void ModelInstance::Render()
 
 void ModelInstance::SetData(const GLfloat *vertex_positions, GLsizeiptr positionSize, const GLfloat * vertex_colors, GLsizeiptr colorsSize, const int * vertex_indices, GLsizeiptr indiciesSize)
 {
-
+	m_size = indiciesSize;
 	glGenVertexArrays(1, &m_ModelAsset.vao);
 	glBindVertexArray(m_ModelAsset.vao);
 
