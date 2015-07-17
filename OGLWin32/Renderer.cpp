@@ -33,10 +33,10 @@ void RendererOGL::Shutdown()
 
 void RendererOGL::Render()
 {
-	for (auto r : m_RenderList)
+	/*for (auto r : m_RenderList)
 	{
 		r->Render();
-	}
+	}*/
 	m_obj.Render();
 	//m_cube->Render();
 }

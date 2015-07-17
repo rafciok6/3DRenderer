@@ -18,6 +18,8 @@ public:
 	void SetData(const GLfloat *vertex_positions, GLsizeiptr positionSize, const GLfloat * vertex_colors, GLsizeiptr colorsSize, const int * vertex_indices, GLsizeiptr indiciesSize);
 
 
+	void SetDataVector(vector<float> *vertex_positions, vector<int> *indiciesSize);
+
 	void SetTexture(LPWSTR filename); 
 private: 	
 	

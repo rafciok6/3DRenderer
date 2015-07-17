@@ -1,14 +1,10 @@
 #pragma once 
+#ifndef _OBJ_LOADER_
+#define _OBJ_LOADER_
 
 #include "ModelInstance.h"
-#include <Windows.h> 
-#include <gl\GL.h> 
-#include <gl\GLU.h> 
-#include <iostream> 
-#include <fstream> 
+
 #include <vector> 
-#include <cmath> 
-#include <memory> 
 using namespace std;
 
 class OBJLoader
@@ -29,10 +25,10 @@ private:
 	//int  m_totalConnectedPoints; //store the total nomber of connected vertices 
 	//int  m_totalConnectedTriangles; //Store dtotal number of connected triangles
 
-	vector<float *> m_vVertices; 
-	vector<int *> m_vFaces; 
-
-	FILE *m_FilePointer;
+	vector<float > m_vVertices; 
+	vector<int > m_vFaces; 
 
 	ModelInstance m_ModelInstance; 
 };
+
+#endif

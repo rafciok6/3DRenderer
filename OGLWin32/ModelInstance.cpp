@@ -44,10 +44,10 @@ void ModelInstance::Render()
 	glUniformMatrix4fv(glGetUniformLocation(m_ModelAsset.shader->GetProgramHandle(), "modelview"), 1, GL_FALSE, m_modelview);
 	glUniformMatrix4fv(glGetUniformLocation(m_ModelAsset.shader->GetProgramHandle(), "projection"), 1, GL_FALSE, m_projection);
 
-	glActiveTexture(GL_TEXTURE0); 
-	 	glBindTexture(GL_TEXTURE_2D, m_textureID.at(0));
-	glUniform2f(glGetUniformLocation(m_ModelAsset.shader->GetProgramHandle(), "screenSize"), 1024.0f /8, 768.0f/ 8);
-	glUniform1i(glGetUniformLocation(m_ModelAsset.shader->GetProgramHandle(), "tex"), 0); 
+	//glActiveTexture(GL_TEXTURE0); 
+	// 	glBindTexture(GL_TEXTURE_2D, m_textureID.at(0));
+	//glUniform2f(glGetUniformLocation(m_ModelAsset.shader->GetProgramHandle(), "screenSize"), 1024.0f /8, 768.0f/ 8);
+	//glUniform1i(glGetUniformLocation(m_ModelAsset.shader->GetProgramHandle(), "tex"), 0); 
 
 	glBindVertexArray(m_ModelAsset.vao);
 	
@@ -62,7 +62,7 @@ void ModelInstance::Render()
 
 	//glDrawElements( GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, (void*)(16*sizeof(int)) );
 	//glDrawElements( GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, (void*)(20*sizeof(int)) );
-	glDrawArrays(GL_TRIANGLES, 0, m_size);
+	glDrawArrays(GL_TRIANGLE_STRIP, 0, m_size);
 	glBindVertexArray(0);
 
 	m_ModelAsset.shader->DeactivateShaderProgram();
@@ -94,6 +94,34 @@ void ModelInstance::SetData(const GLfloat *vertex_positions, GLsizeiptr position
 
 	glBindVertexArray(0);
 
+}
+
+void ModelInstance::SetDataVector(vector<float> *vertex_positions, vector<int> *indiciesSize)
+{
+	m_size = indiciesSize->size();
+	cout << "Array size = " << m_size << endl;
+	glGenVertexArrays(1, &m_ModelAsset.vao);
+	glBindVertexArray(m_ModelAsset.vao);
+
+	glGenBuffers(1, &m_ModelAsset.vbo_verts);
+	glBindBuffer(GL_ARRAY_BUFFER, m_ModelAsset.vbo_verts);
+	glBufferData(GL_ARRAY_BUFFER, vertex_positions->size() * sizeof(float), vertex_positions, GL_STATIC_DRAW);
+	//used function to comunicate with shader 
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(0);
+
+	//glGenBuffers(1, &m_ModelAsset.vbo_colours);
+	//glBindBuffer(GL_ARRAY_BUFFER, m_ModelAsset.vbo_colours);
+	//glBufferData(GL_ARRAY_BUFFER, colorsSize, vertex_colors, GL_STATIC_DRAW);
+	//glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	//glEnableVertexAttribArray(1);
+
+	//Set up the element array buffer 
+	glGenBuffers(1, &m_ModelAsset.vbo_indices);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ModelAsset.vbo_indices);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indiciesSize->size() * sizeof(int), indiciesSize, GL_STATIC_DRAW);
+
+	glBindVertexArray(0);
 }
 
 void ModelInstance::SetTexture(LPWSTR filename)
